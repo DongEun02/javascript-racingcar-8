@@ -3,6 +3,7 @@ import input from './utils/input.js';
 import createCar from './utils/createCar.js';
 import moveCar from './utils/moveCar.js';
 import moveResult from './utils/moveResult.js';
+import printWinner from './utils/printWinner.js';
 
 class App {
   async run() {
@@ -19,6 +20,8 @@ class App {
       moveResult(cars);
       Console.print('');
     }
+
+    printWinner(cars);
   }
 }
 
