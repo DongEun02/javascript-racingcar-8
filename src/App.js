@@ -1,6 +1,8 @@
+import { Console } from '@woowacourse/mission-utils';
 import input from './utils/input.js';
 import createCar from './utils/createCar.js';
 import moveCar from './utils/moveCar.js';
+import moveResult from './utils/moveResult.js';
 
 class App {
   async run() {
@@ -10,7 +12,13 @@ class App {
 
     const cars = createCar(carNameArray);
 
-    for (let i = 0; i < Number(count); i++) moveCar(cars);
+    Console.print('\n실행 결과');
+
+    for (let i = 0; i < Number(count); i++) {
+      moveCar(cars);
+      moveResult(cars);
+      Console.print('');
+    }
   }
 }
 
