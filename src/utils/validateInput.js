@@ -15,7 +15,7 @@ const validateInput = (carNames, count) => {
   if (!carNames || !carNames.trim()) {
     throw new Error(ERROR_MESSAGES.EMPYY_INPUT);
   }
-  if (/[^a-zA-Z0-9,]/.test(carNames)) {
+  if (/[^가-힣a-zA-Z0-9,\s]/.test(carNames)) {
     throw new Error(ERROR_MESSAGES.INVALID_CHAR);
   }
   const nameArray = carNames.split(',').map((name) => name.trim());
