@@ -1,9 +1,9 @@
 import { Console } from '@woowacourse/mission-utils';
 
-const moveResult = (cars) => {
+const printRoundResult = (cars) => {
   cars.forEach((car) => {
     Console.print(car.getMovePosition());
   });
 };
 
-export default moveResult;
+export default printRoundResult;

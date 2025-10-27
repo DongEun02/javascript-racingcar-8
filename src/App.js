@@ -1,10 +1,9 @@
-import { Console } from '@woowacourse/mission-utils';
-import input from './utils/input.js';
-import createCar from './utils/createCar.js';
-import moveCar from './utils/moveCar.js';
-import moveResult from './utils/moveResult.js';
-import printWinner from './utils/printWinner.js';
+import input from './view/input.js';
+import parseCarNames from './utils/parseCarNames.js';
+import createCar from './service/createCar.js';
+import printWinner from './view/printWinner.js';
 import validateInput from './utils/validateInput.js';
+import RacingGame from './service/RacingGame.js';
 
 class App {
   async run() {
@@ -12,17 +11,13 @@ class App {
 
     validateInput(carNames, Number(count));
 
-    const carNameArray = carNames.split(`,`).map((name) => name.trim());
+    const carNameArray = parseCarNames(carNames);
 
     const cars = createCar(carNameArray);
 
-    Console.print('\n실행 결과');
+    const game = new RacingGame(cars, Number(count));
 
-    for (let i = 0; i < Number(count); i++) {
-      moveCar(cars);
-      moveResult(cars);
-      Console.print('');
-    }
+    game.play();
 
     printWinner(cars);
   }

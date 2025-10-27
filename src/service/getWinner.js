@@ -1,6 +1,4 @@
-import { Console } from '@woowacourse/mission-utils';
-
-const printWinner = (cars) => {
+const getWinner = (cars) => {
   const maxDistance = Math.max(...cars.map((car) => car.getPosition()));
 
   const winners = [];
@@ -8,7 +6,7 @@ const printWinner = (cars) => {
     if (car.getPosition() === maxDistance) winners.push(car.getName());
   });
 
-  Console.print(`최종 우승자: ${winners.join(', ')}`);
+  return winners;
 };
 
-export default printWinner;
+export default getWinner;
